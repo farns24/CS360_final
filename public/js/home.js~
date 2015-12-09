@@ -1,0 +1,3 @@
+this.getHtml = function(){
+return '<html><Head><Title></Title><link rel="stylesheet" type="text/css" href="css/style.css"></head><body><h1>Share My Creation</h1><h2>Choose a Location</h2></body></html>';
+}

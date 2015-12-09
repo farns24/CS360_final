@@ -1,0 +1,114 @@
+var app = angular.module('app',['ngRoute','ngAnimate']);
+
+/*app.factory('Creation', ['$resource',
+  function($resource){
+    return $resource('/creations', {}, {
+      query: {method:'GET', params:{}, isArray:true}
+    });
+  }]);
+*/
+
+//app.factory('AuthenticationService', AuthenticationService);
+
+
+app.config(function($routeProvider, $locationProvider) {
+    $routeProvider
+    .when("/New/:greek/App/home", {
+        templateUrl: "assets/tpl/home.html",
+        controller: "popularController"
+    })
+    .otherwise({
+        redirectTo: "fail"
+    });
+    $locationProvider.html5Mode(true);
+});
+
+
+//console.log("Angular App Registered");
+app.controller('popularController',function($scope, $http) {
+        
+         $http({method : 'GET',url : '/creations'}).success(function(data) {
+
+	
+		
+                $scope.popular = data;
+            }).error(function(data) {
+                alert("Error");
+            }
+        )}
+);
+
+//Browse Controller
+app.controller('browseController', function($scope, $http) {
+	delete $http.defaults.headers.common['X-Requested-With'];
+    $scope.creations = [];
+
+       
+         $http({method : 'GET',url : '/creations'}).success(function(data, status) {
+                $scope.creations = data;
+            }).error(function(data, status) {
+                alert("Error");
+            }
+        )}
+
+);
+
+app.controller('menuController', function($scope, $http) {
+
+        delete $http.defaults.headers.common['X-Requested-With'];
+         $http({method : 'GET',url : '/menu'}).success(function(data) {
+
+		//Parse data:
+var menusByCategory = {};
+		console.log(data);
+		for (var i = 0; i<data.menus.length;i++) {
+		var menu = data.menus[i];
+		console.log(menu);
+                    //Option Map {OptionId:option}
+			//for each menuItem option
+			    //Add to dictionary {id,option}
+
+
+                    //Menu Category Map {Category:List of items}
+			
+			
+			
+				for (var j = 0;j< menu.menuItems.length;j++) {
+				var menuItem = menu.menuItems[j];
+				console.log(menuItem);
+					if (!menusByCategory[menuItem.category])
+					{
+						menusByCategory[menuItem.category] =[];
+						//add new array to dictionary 
+					}
+					menusByCategory[menuItem.category].push(menuItem);
+				}   
+			}
+
+                    //
+		$scope.restaurantName = data.name;
+		$scope.sortedMenu = menusByCategory;
+                $scope.menuResponse = data;
+             }).error(function(data, status) {
+                alert("Error");
+            }
+        )}
+);
+
+app.directive('uniqueUsername', function($http) {
+      return {
+           restrict: 'A',
+           require: 'ngModel,^form',
+           link: function (scope, element, attrs, ngModel) {
+                element.bind('blur', function (e) {
+                     ngModel.$loading = true;
+
+                     $http.get("/api/checkUnique/" + element.val()).success(function(data) {
+                        ngModel.$loading = false;
+                        ngModel.$setValidity('unique', !data);
+                     });
+                });
+           }
+      };
+})
+

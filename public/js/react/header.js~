@@ -1,0 +1,55 @@
+var HeaderClass = React.createClass({
+    render: function(){
+	return (
+	<header>
+		<ul>
+		  <li className="top"><h1>SPFCreations</h1></li>
+		  <li className="top"><a id="topHome" className={this.props.homeClass} href="/public/html/home.html">Home</a></li>
+		  <li className="top"><a id="topPopular" className={this.props.popularClass} href="/public/html/popular.html">Most Popular</a></li>
+		  <li className="top"><a id="topBrowse" className={this.props.browseClass} href="/public/html/browse.html">Browse</a></li>
+		  <li className="top"><a id="topLogin" className= {this.props.loginClass} href="/public/html/login.html">Login</a></li>
+		</ul>
+	</header>
+
+		);
+	}
+
+});
+
+var popularOptions = {
+		homeClass:"topBar",
+		popularClass:"topSelected",
+		browseClass: "topBar",
+		loginClass: "topBar"	
+		};
+
+var browseOptions = {
+		homeClass:"topBar",
+		popularClass:"topBar",
+		browseClass: "topSelected",
+		loginClass: "topBar"	
+		};
+
+
+var popularHeader = React.createElement(HeaderClass,popularOptions);
+var browseHeader = React.createElement(HeaderClass,browseOptions);
+
+
+try{
+ReactDOM.render(popularHeader,
+  document.getElementById('popularHeader')
+);
+}
+catch(err)
+{
+}
+
+try {
+ReactDOM.render(browseHeader,
+  document.getElementById('browseHeader')
+);
+}
+catch(err)
+{
+
+}

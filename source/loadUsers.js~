@@ -1,0 +1,32 @@
+var UserGist = React.createClass({
+  getInitialState: function() {
+    return {
+      username: ''
+    };
+  },
+
+  componentDidMount: function() {
+    $.get(this.props.source, function(result) {
+      var lastGist = result[0];
+      if (this.isMounted()) {
+        this.setState({
+          username: lastGist.name
+        });
+      }
+    }.bind(this));
+  },
+
+  render: function() {
+    return (
+      <div>
+        {this.state.username}'s last gist is
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(
+  <UserGist source="localhost:8080/users" />,
+  mountNode
+);
+

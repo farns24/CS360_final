@@ -1,0 +1,201 @@
+/*Development color scheme
+#7D9100
+#354242
+#ACEBAE
+#FFFF9D
+#C9DE55
+*/
+header {
+    background: url("/titlebar.svg") ;
+    height: 175px;
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin: 0;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    /*opacity: 0.75;*/
+}
+h1 {
+   color:#ACEBAE;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 10px; 
+    overflow: hidden;
+}
+
+li.top {
+    float: left;
+}
+
+a{
+    display: block;
+    font: bold 12px/30px Georgia, sans-serif;
+    padding-right: 30px;
+    padding-left: 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+}
+
+.topBar{
+color:#ACEBAE;
+}
+
+.topSelected{
+background: url("/public/image/selected.svg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.sideMenuItem{
+    background: url("/public/image/sideMenuItem.svg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+.creatonGridContainer{
+
+}
+.creationGridItemImage{
+	height: 50px;
+        width: 50px;
+	border-style: solid;
+	border-radius: 10px;
+	padding: 5px;
+	float: left;
+}
+
+.creationGridItem
+{
+	height: 170px;
+        width: 170px;
+	border-style: solid;
+	border-radius: 25px;
+	border-style: solid;
+	border-width: 1px;
+	padding: 5px;
+	float: left;
+	position: relative;
+
+}
+
+.creationGridItem:hover
+{
+	/*height: 225px;
+        width: 225px;*/
+	transform: scale(1,1.2);
+	up: 50px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 25px;
+	padding: 5px;
+	float: left;
+	
+
+}
+
+.creationGridItemMenu {
+	/*vertical-align: bottom;*/
+	position:absolute;
+	bottom:0;
+	padding:5px;
+	left:0;
+}
+
+.topBarOver{
+color:#354242
+
+}
+
+a {
+
+}
+.categoryImage{
+width: 150px;
+height: 150px;
+}
+
+.myInlineBlock{
+	display: inline-block;
+}
+
+.loginForm{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+    height: 325px;
+     background: url("/public/image/loginBackground.svg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.loginInnerDiv{
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+}
+
+label { 
+    padding:0.4em 2em 0.4em 0; 
+}
+
+.categoryGroup { 
+    margin:3px 0; 
+}
+.itemRadioBtn { 
+    text-align:centre; 
+    margin:5px 2px;
+    padding:0.4em 3em; 
+    color:#000; 
+    background-color:#FFF; 
+    border-radius:10px; 
+    display:inline-block; 
+    border:solid 1px #CCC; 
+    cursor:pointer;
+}
+
+.itemRadioBtn:hover { 
+    border:solid 1px #a0d5dc !important; 
+    background:#f1fdfe;
+}
+
+
+.itemRadioBtn.success { 
+    background:lightgreen;
+    border:solid 1px green !important; 
+}
+
+input[type="radio"] {
+   background-image: linear-gradient(to top,#969696,#727272);
+  box-shadow: inset 0 1px 6px rgba(41, 41, 41, 0.2),
+                    0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: default;
+  color: #E6E6E6;
+  border-color: transparent;
+  text-shadow: 0 1px 1px rgba(40, 40, 40, 0.75);
+}
+
+.baseRadioItem:checked{
+ color: lightgreen;
+}

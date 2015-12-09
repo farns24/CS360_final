@@ -1,0 +1,20 @@
+var SideMenuClass = React.createClass({
+    render: function(){
+		return(
+		    <div>
+			<a className="sideMenuItem">Make new Creation</a><br/>
+		        <a className="sideMenuItem">Manage my Creations</a>
+		    </div>
+
+		);
+	}
+
+});
+
+
+var sideMenu = React.createElement(SideMenuClass);
+
+ReactDOM.render(
+	sideMenu,
+	document.getElementById("sideMenuR")
+);

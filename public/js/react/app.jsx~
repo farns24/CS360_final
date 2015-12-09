@@ -1,0 +1,39 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+//var Routes = require('./routes');
+var BodyRoutes = require('./bodyRoutes');
+
+var SideMenu = require('./sideMenu');
+
+
+var mySideMenu = React.createElement(SideMenu);
+
+
+var headerDOM = document.getElementById('header');
+if (headerDOM!=null)
+{
+//	ReactDOM.render(Routes,
+//	 headerDOM 
+//	);
+}
+else
+{
+
+console.log("'popularHeader' is null");
+}
+
+
+var sideMenuDom = document.getElementById('mySideMenuR');
+
+if (sideMenuDom != null)
+{
+	ReactDOM.render(mySideMenu,sideMenuDom);
+	
+}
+
+var bodyDom = document.getElementById('myMainBody');
+
+if (bodyDom!=null)
+{
+	ReactDOM.render(BodyRoutes,bodyDom);
+}

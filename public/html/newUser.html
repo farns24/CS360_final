@@ -1,0 +1,126 @@
+
+<html>
+<Head>
+<Title></Title>
+<link rel="stylesheet" type="text/css" href="./../bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./../css/style.css">
+<script type = "text/javascript" src = "./js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>       
+<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-route.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
+<script type = "text/javascript" src = "/homeQuery.js"></script>
+<script src="/public/js/controller.js"></script>
+</head>
+<body>
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log("statusChangeCallback");
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === "connected") {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === "not_authorized") {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById("status").innerHTML = "Please log " +
+        "into this app.";
+    } else {
+      // The person is not logged into Facebook, so we\'re not sure if
+      // they are logged into this app or not.
+      document.getElementById("status").innerHTML = "Please log " +
+        "into Facebook.";
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : "1937380396486077",
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : "v2.2" // use version 2.2
+  });
+
+  // Now that we\'ve initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app (\'not_authorized\')
+  // 3. Not logged into Facebook and can\'t tell if they are logged into
+  //    your app or not.\
+  //\
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, "script", "facebook-jssdk"));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log("Welcome!  Fetching your information.... ");
+    FB.api("/me", function(response) {
+      console.log("Successful login for: " + response.name);
+      document.getElementById("status").innerHTML =
+        "Thanks for logging in, " + response.name + "!";
+    });
+  }
+</script>
+<header>
+<ul>
+  <li class="top"><h1>SPFCreations</h1></l1>
+  <li class="top"><a id="topHome" class="topBar" href="/public/html/home.html">Home</a></li>
+  <li class="top"><a id="topPopular" class="topBar" href="/public/html/popular.html">Most Popular</a></li>
+  <li class="top"><a id="topBrowse" class="topBar" href="/public/html/browse.html">Browse</a></li>
+  <li class="top"><a id="topLogin" class="topSelected" href="/public/html/login.html">Login</a></li>
+  <li class="top"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button></li>
+</ul>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+</header>
+	<div ng-app="app">
+		<form method="post" action="/createNewUser">
+			<input type="input" name="userName" placeHolder="user name" ng-model="form.username"/><br/>
+			<input type="password" name="password" placeHolder="password" /> <br />
+			<input type="input" name="name" placeHolder="name"/> <br />
+			<input type="submit">Create New User</input>
+			<span class="hide-while-in-focus" ng-show="thisform.username.$error.unique">Username taken!</span>
+		</form>
+	</div>
+</body>
+</html>
+

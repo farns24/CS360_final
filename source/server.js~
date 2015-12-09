@@ -1,0 +1,89 @@
+var express = require('express');
+var app = express();
+var fs = require("fs");
+
+/*Bellow is a way of serving up static files. look into it.*/
+//app.use(express.static(""));
+
+app.get('/', function (req, res) {
+  home = require("./home.js")
+  res.send(home.getHtml());
+});
+
+app.get('/css/style.css',function (req,res) {
+
+    console.log(req.toString());
+    var data = fs.readFileSync("./../public/css/style.css");
+   res.send(data);
+});
+
+app.get('/image/background.jpg',function (req,res) {
+
+    console.log(req.toString());
+    var data = fs.readFileSync("./../public/image/background.jpg");
+   res.setHeader('content-type', 'image/jpeg');
+   res.send(data);
+});
+
+app.get('/js/jquery.js',function (req,res) {
+
+    console.log(req.toString());
+    var data = fs.readFileSync("./../public/js/jquery.js");
+   //res.setHeader('content-type', 'text/jpeg');
+   res.send(data);
+});
+
+app.get('/homeQuery.js',function (req,res) {
+
+    console.log(req.toString());
+    var data = fs.readFileSync("./homeQuery.js");
+   //res.setHeader('content-type', 'text/jpeg');
+   res.send(data);
+});
+
+
+//Lets define a port we want to listen to
+const PORT=8080; 
+/*
+//We need a function which handles requests and send response
+function handleRequest(request, response){
+
+var contentType = 'text/html';
+
+if(request.method === "GET") {
+    if (request.url === "/") {
+
+      response.writeHead(200, {'Content-Type': contentType});
+      home = require("./home.js")	
+      response.write(home.getHtml());
+      response.end();
+   
+ } else {
+
+	var fs = require("fs");
+
+	// Asynchronous read
+	// Synchronous read
+	var data = fs.readFileSync("./../public"+ request.url);
+
+if (ext === '.png') {
+       contentType = 'image/png';
+    }
+        response.writeHead(200, {'Content-Type': contentType});
+	response.write(data.toString());
+      	response.end();
+    }
+  }
+
+}
+*/
+//Create a server
+//var server = http.createServer(handleRequest);
+var server = app.listen(PORT, function() {
+
+});
+//Lets start our server
+//server.listen(PORT, function(){
+    //Callback triggered when server is successfully listening. Hurray!
+//    console.log("Server listening on: http://localhost:%s", PORT);
+//});
