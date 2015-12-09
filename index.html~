@@ -1,0 +1,29 @@
+<html>
+<head>
+		<Title></Title>
+		<link rel="stylesheet" type="text/css" href="/public/bootstrap/dist/css/bootstrap.min.css">
+
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="./../css/style.css">
+		
+		<script type = "text/javascript" src = "/public/js/jquery.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+		<script type = "text/javascript" src = "/homeQuery.js"></script>		
+		
+	</head>
+<body>
+    <div id="header"></div>
+	
+    <div id="myContainer" class="container">
+        <div class="row">
+            <div id="mySideMenuR" class="col-md-2 col-xs-4"></div>
+	    <div id="myMainBody" class="col-md-10 col-xs-8"></div>
+        </div>
+    </div>
+    <script src="/public/app.js"></script>
+</body>
+</html>
+
