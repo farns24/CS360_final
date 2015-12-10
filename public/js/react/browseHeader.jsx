@@ -44,9 +44,3 @@ module.exports= React.createClass({
 
 });
 
-
-
-
-
-https://github.com/farns24/CS360_final.git
-
