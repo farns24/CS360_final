@@ -36,8 +36,12 @@ module.exports = React.createClass({
    render: function() {
 	
 	
+		var list = this.props.data.map(function(dataProps){
+	return <Browse {...dataProps} />
+
+	});
 	return (
-	<div>Browse List</div>
+	<div>{list}</div>
 	);
 	
     }

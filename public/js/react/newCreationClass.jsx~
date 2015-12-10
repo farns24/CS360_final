@@ -41,7 +41,7 @@ module.exports = React.createClass({
 	return <MenuCategory {...data}/>
 	});
     return (
-        <form action="./api/creation/" method="post" onSubmit={this.createItem}>
+        <form action="./api/creation/" onSubmit={this.createItem}>
 	    <h2>Enter Creation Name</h2>
 	    	<input type="text" name="title" ref="title"></input>
             <h2>Choose Base Drink Category</h2>
