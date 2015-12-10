@@ -10,7 +10,10 @@ module.exports= React.createClass({
 		console.log("Click Handeled");
 		auth.logout();
 	},
+  getName: function(){
 
+      return auth.getName();
+  },
   // initial state
   getInitialState: function() {
     return {

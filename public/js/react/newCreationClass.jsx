@@ -14,7 +14,8 @@ module.exports = React.createClass({
     };
   },
 
-  createItem: function(){
+  createItem: function(event){
+        event.preventdefault();
 	itemApi.addItem(this.refs.title.value, this.refs.itemId.value,null);
 },
 
