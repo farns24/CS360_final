@@ -2,6 +2,8 @@ var React = require('react');
 var ReactRouter = require("react-router");
 var History = ReactRouter.History;
 var selectedItemId =0;
+var editItem = require('./editItemHelper');
+
 var BaseMenuItem = React.createClass({
 
   mixins: [ History ],
@@ -67,8 +69,18 @@ module.exports = React.createClass({
 
   createItem: function(event){
         console.log('createItem');
-	itemApi.addItem(this.refs.title.value, selectedItemId,null);
+	var self = this;
+	itemApi.addItem(this.refs.title.value, selectedItemId,function(success,res){
+
+	console.log(res);
+	editItem.setEditedItem(res);
+	if (success)
+	{	
+		self.transitionTo('editItem', {itemId: selectedItemId});
+	}
+});
 	event.preventdefault();
+	return false;
 },
 
   componentDidMount: function() {
@@ -95,7 +107,7 @@ module.exports = React.createClass({
 	return <MenuCategory {...data}/>
 	});
     return (
-        <form action="#editItem" onSubmit={this.createItem}>
+        <form onSubmit={this.createItem}>
 	    <h2>Enter Creation Name</h2>
 	    	<input type="text" name="title" ref="title"></input>
             <h2>Choose Base Drink Category</h2>

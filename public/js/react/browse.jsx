@@ -9,18 +9,7 @@ Grid Item menu
 /**
 Popular Item
 */
-var Browse = React.createClass({
-  render: function() {
-    return (
-    <div className="creationGridItem">
-        <img src="/public/image/cherry.svg" className="creationGridItemImage"/>
-	<a href="/creation/">
-		{this.props.title}
-	</a>
-    </div>
-    );
-  }
-});
+var Browse = require('./browseItem');
 
 module.exports = React.createClass({
 		getInitialState: function(){
@@ -50,11 +39,7 @@ module.exports = React.createClass({
 	});
 	
 	return (
-	<div
-  className="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">{items}</div>
+	<div>{items}</div>
 	);
 	
     }

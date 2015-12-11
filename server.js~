@@ -45,8 +45,8 @@ setInterval(function(){
 	  try{
 	  //console.log("Update Menu");
 	  currentMenu = "";
-	
-	  menu.getMenu(cb);
+	creationRoute.loadMenu(cb);
+	  //menu.getMenu(cb);
 
 	}catch(err){
 
@@ -78,6 +78,8 @@ app.post('/api/users/register', creationRoute.register);
 
 // login a user
 app.post('/api/users/login', creationRoute.login);
+
+app.get('/api/creation',creationRoute.getMyItems);
 
 app.post('/api/creation/', creationRoute.postItem);
 

@@ -4,7 +4,7 @@ var $ = require("jquery");
 var api = {
   // get the list of items, call the callback when complete
   getItems: function(cb) {
-    var url = "/api/items";
+    var url = "/api/creation";
     $.ajax({
       url: url,
       dataType: 'json',

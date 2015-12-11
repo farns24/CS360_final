@@ -11,6 +11,7 @@ var Base = require('./base');
 var Browse = require('./browse');
 var HomeBody = require('./homeBody');
 var EditItem = require('./editItemHome');
+var MyItemAuth = require('./myItemAuth');
 
 module.exports = (
 <Router>
@@ -22,6 +23,7 @@ module.exports = (
 	<Route path="browse" component={Browse}/>
 	<Route path="home" component={HomeBody}/>
 	<Route path="editItem" component={EditItem}/>
+	<Route path="myItems" component={MyItemAuth}/>
     </Route>
 </Router>
 )

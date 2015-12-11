@@ -15,6 +15,6 @@ xmlns="http://www.w3.org/2000/svg">
       <stop offset="100%" style="stop-color:#d4d4d4;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <polygon points="90,0 100,60 10,60 0,30 10,0" fill="url(#grad1)"/>
+  <polygon points="100,0 100,60 10,60 0,30 10,0" fill="url(#grad1)"/>
   Sorry, your browser does not support inline SVG.
 </svg>

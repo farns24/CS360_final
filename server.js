@@ -79,6 +79,8 @@ app.post('/api/users/register', creationRoute.register);
 // login a user
 app.post('/api/users/login', creationRoute.login);
 
+app.get('/api/creation',creationRoute.listItems);
+
 app.post('/api/creation/', creationRoute.postItem);
 
 app.get('/api/creation/:item_id', creationRoute.getItem);

@@ -5,7 +5,7 @@ module.exports = React.createClass({
 		return(
 		    <div>
 			<a className="sideMenuItem" href = "#newCreation">Make Creation</a><br/>
-		        <a className="sideMenuItem">Manage my Creations</a>
+		        <a className="sideMenuItem" href = "#myItems">Manage my Creations</a>
 		    </div>
 		);
 	}

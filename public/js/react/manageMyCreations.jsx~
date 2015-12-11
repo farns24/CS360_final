@@ -1,0 +1,37 @@
+var React = require('react');
+var ReactRouter = require("react-router");
+var History = ReactRouter.History;
+
+var auth = require("./auth");
+var api = require('./api');
+var BrowseItem = require('./browseItem');
+
+
+module.exports = React.createClass({
+	getInitialState: function(){
+		return {
+			myItems:[]		
+			};
+	},
+	componentDidMount:function(){
+	var self = this;
+	api.getItems(function(success,res){
+		 if (self.isMounted()) {
+        		self.setState({
+		 		 myItems: res.items
+        		});
+      		}
+	})
+
+	},
+
+	render: function(){
+	var items = this.state.myItems.map(function(dataProps){
+					return <BrowseItem {...dataProps}/>
+
+				});
+	return(<div>My creations</div>);
+	}
+
+
+});

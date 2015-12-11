@@ -24,6 +24,7 @@ var api = {
   },
   // add an item, call the callback when complete
   addItem: function(title,itemId, cb) {
+    console.log("Item posted to");
     var url = "/api/creation";
     $.ajax({
       url: url,
