@@ -15,6 +15,7 @@ var creationRoute = require("./source/creationRoute.js");
 
 var currentMenu = "";
 var currentCategories = {};
+var itemToOption = {};
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -29,6 +30,7 @@ app.get('/users', creationRoute.getUsers);
 var cb =  function(updatedMenu){
 		currentMenu = updatedMenu;
                 currentCategories = menuHelper.getCategories(updatedMenu);
+		itemToOption = menuHelper.getOptionMap(updatedMenu);
 	};
 
 try{
@@ -38,7 +40,7 @@ try{
 }
 setInterval(function(){
 	  try{
-	  console.log("Update Menu");
+	  //console.log("Update Menu");
 	  currentMenu = "";
 	
 	  menu.getMenu(cb);
@@ -60,6 +62,12 @@ app.get('/categories', function(req,res){
  res.setHeader('content-type', 'application/json');
 
 res.send(currentCategories);
+});
+
+app.get('/itemToOption', function(req,res){
+ res.setHeader('content-type', 'application/json');
+
+res.send(itemToOption);
 });
 
 // register a user

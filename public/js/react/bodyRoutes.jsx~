@@ -9,7 +9,7 @@ var NewCreationClass = require('./newCreationAuth');
 var NewUserBodyClass = require('./newUserClass');
 var Base = require('./base');
 var Browse = require('./browse');
-
+var HomeBody = require('./homeBody');
 
 module.exports = (
 <Router>
@@ -19,7 +19,7 @@ module.exports = (
 	<Route path="newUser" component={NewUserBodyClass}/>
 	<Route path="popular" component={Popular}/>
 	<Route path="browse" component={Browse}/>
-	<Route path="home" component={Home}/>
+	<Route path="home" component={HomeBody}/>
     </Route>
 </Router>
 )

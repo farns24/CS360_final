@@ -16,6 +16,10 @@ module.exports = React.createClass({
     };
 
   },
+   selectMe : function(){
+        console.log(this.props.itemId);
+	this.props.selId = this.props.itemId;
+	},
 
   getName: function(){
 
@@ -23,7 +27,7 @@ module.exports = React.createClass({
   },
     render: function(){
         return(
-<input className="baseRadioItem" type="radio" name="itemId" ref="itemId" value={this.props.itemId}>
+<input className="baseRadioItem" type="radio" name="itemId" ref="itemId" value={this.props.itemId} onChange={this.selectMe}>
   {this.props.itemName}
 </input>
         )

@@ -21,6 +21,7 @@ module.exports = (
 	<Route path="login" component={LoginHeaderClass}/>
 	<Route path="newCreation" component={OtherHeaderClass}/>
 	<Route path="newUser" component={OtherHeaderClass}/>
+	<Route path="editItem" component={OtherHeaderClass}/>
     </Route>
 </Router>
 )

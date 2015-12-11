@@ -13,12 +13,6 @@ var menuHelper = require("./source/menuHelper.js");
 
 var creationRoute = require("./source/creationRoute.js");
 
-/*
-var checkAuth = function(req,res, next){
-	next();
-	//res.send("You are not authorized to see this page");
-}
-*/
 var currentMenu = "";
 var currentCategories = {};
 app.use(morgan('dev'));
@@ -44,7 +38,7 @@ try{
 }
 setInterval(function(){
 	  try{
-	  console.log("Update Menu");
+	  //console.log("Update Menu");
 	  currentMenu = "";
 	
 	  menu.getMenu(cb);

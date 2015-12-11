@@ -20,6 +20,7 @@ module.exports = (
 	<Route path="browse" component={BrowseHeaderClass}/>
 	<Route path="login" component={LoginHeaderClass}/>
 	<Route path="newCreation" component={OtherHeaderClass}/>
+	<Route path="newUser" component={OtherHeaderClass}/>
     </Route>
 </Router>
 )

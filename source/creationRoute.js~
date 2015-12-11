@@ -234,7 +234,7 @@ exports.postItem = function (req,res) {
   user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
       // if the token is valid, create the item for the user
-      Item.create({title:req.body.item.title,itemId: req.body.item.itemId,user:user.id}, function(err,item) {
+      Item.create({title:req.body.item.title,itemId:req.body.item.itemId,user:user.id}, function(err,item) {
 	if (err) {
 	  res.sendStatus(403);
 	  return;

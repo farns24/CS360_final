@@ -36,3 +36,47 @@ module.exports.getCategories= function(rawResult)
     return categories;
 }
 
+module.exports.getOptionMap= function(rawResult)
+{
+    var result = JSON.parse(rawResult);
+    var optionMap = {};
+    var itemsToOptions = {};
+    for (var i = 0; i<result.menus.length; i++)
+    {
+       var menus = result.menus[i];
+       if (menus==null)
+	{
+	    continue;	
+	}
+	for (var k = 0; k<menus.menuItemOptions.length; k++)
+	{
+		var menuOption = menus.menuItemOptions[k];
+		optionMap[menuOption.optionId] = menuOption;
+
+	}
+
+
+
+
+
+
+       //console.log(menus);
+       for (var j = 0;j< menus.menuItems.length; j++)
+        { 
+	    
+            var menuItem = menus.menuItems[j];
+	    itemsToOptions[menuItem.itemId] = [];
+		if (menuItem.menuItemOptionList){
+	    for (var h=0; h< menuItem.menuItemOptionList.length; h++)
+		{
+			var option = menuItem.menuItemOptionList[h];
+			itemsToOptions[menuItem.itemId].push(optionMap[option.optionId]);
+		}		
+		}	    
+        }
+		       
+    }
+    return itemsToOptions;
+}
+
+

@@ -231,14 +231,18 @@ exports.listItems = function (req,res) {
 exports.postItem = function (req,res) {
   // validate the supplied token
   // get indexes
+  console.log("request hit server");
   user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
+	console.log("User found");
       // if the token is valid, create the item for the user
       Item.create({title:req.body.item.title,itemId:req.body.item.itemId,user:user.id}, function(err,item) {
 	if (err) {
+	  console.log(err);
 	  res.sendStatus(403);
 	  return;
 	}
+	console.log("Success");
 	res.json({item:item});
       });
     } else {

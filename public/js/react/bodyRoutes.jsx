@@ -10,6 +10,7 @@ var NewUserBodyClass = require('./newUserClass');
 var Base = require('./base');
 var Browse = require('./browse');
 var HomeBody = require('./homeBody');
+var EditItem = require('./editItemHome');
 
 module.exports = (
 <Router>
@@ -20,6 +21,7 @@ module.exports = (
 	<Route path="popular" component={Popular}/>
 	<Route path="browse" component={Browse}/>
 	<Route path="home" component={HomeBody}/>
+	<Route path="editItem" component={EditItem}/>
     </Route>
 </Router>
 )
