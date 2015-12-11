@@ -10,7 +10,6 @@ var findOrCreate = require('mongoose-findorcreate')
 var itemSchema = new Schema({
   user: {type: ObjectId, ref: 'users'},
   title: String,
-  menuId: Number,
   itemId:Number,
   optionIds:[{optionId: Number}],
   created: {type: Date, default: Date.now},

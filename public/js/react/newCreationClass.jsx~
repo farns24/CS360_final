@@ -80,7 +80,7 @@ module.exports = React.createClass({
 	}
 });
 	event.preventdefault();
-	return false;
+	return true;
 },
 
   componentDidMount: function() {

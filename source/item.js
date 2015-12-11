@@ -11,7 +11,7 @@ var itemSchema = new Schema({
   user: {type: ObjectId, ref: 'users'},
   title: String,
   itemId:Number,
-  optionIds:[{optionId: Number}],
+  optionIds:[{optionId: Number,optionValueId:Number}],
   created: {type: Date, default: Date.now},
   score: Number,
 });

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg height="80px" width="110px"
+<svg height="100px" width="130px"
 xmlns="http://www.w3.org/2000/svg">
  <defs>
-    <filter id="f1" x="0" y="0" width="500px" height="125px">
-      <feOffset result="offOut" in="SourceAlpha" dx="5" dy="5" />
-      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+    <filter id="f1" x="0" y="0" width="100px" height="130px">
+      <feOffset result="offOut" in="SourceAlpha" dx="3" dy="4" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
       <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
     </filter>
 
@@ -15,6 +15,6 @@ xmlns="http://www.w3.org/2000/svg">
       <stop offset="100%" style="stop-color:#d4d4d4;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <polygon points="100,0 100,60 10,60 10,0" fill="url(#grad1)"/>
+  <polygon points="105,5 105,60 5,60 5,5" fill="url(#grad1)" filter="url(#f1)"/>
   Sorry, your browser does not support inline SVG.
 </svg>

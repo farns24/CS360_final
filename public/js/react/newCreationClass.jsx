@@ -107,7 +107,7 @@ module.exports = React.createClass({
 	return <MenuCategory {...data}/>
 	});
     return (
-        <form onSubmit={this.createItem}>
+        <form action="#editItem" onSubmit={this.createItem}>
 	    <h2>Enter Creation Name</h2>
 	    	<input type="text" name="title" ref="title"></input>
             <h2>Choose Base Drink Category</h2>
