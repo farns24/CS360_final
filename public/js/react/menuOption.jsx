@@ -2,7 +2,7 @@ var React = require('react');
 
 var OptionVal = React.createClass({
 	render: function(){
-		return(<li><a href="#">{this.props.name}</a></li>);
+		return(<li><a>{this.props.name}</a></li>);
 		
 	}
 
@@ -21,18 +21,18 @@ module.exports = React.createClass({
 			});
 		return(
 		<div>
-			{this.props.option.optionValues ?
- (<div className="btn-group">
+			{this.props.option.optionValues &&this.props.option.optionValues.length>0?
+ (<form><div className="btn-group">
 	<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     {this.props.option.optionDisplayName} <span className="caret"></span>
   </button>
 	<ul className="dropdown-menu">
-	vals
+	{vals}
 	</ul>
-</div>)
+</div></form>)
 
 
- : <h3>this.props.option.optionDisplayName</h3>}
+ : <button className="btn btn-default">{this.props.option.optionDisplayName}</button>}
 		</div>
 		);
 	}

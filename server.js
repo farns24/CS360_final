@@ -45,8 +45,8 @@ setInterval(function(){
 	  try{
 	  //console.log("Update Menu");
 	  currentMenu = "";
-	
-	  menu.getMenu(cb);
+	creationRoute.loadMenu(cb);
+	  //menu.getMenu(cb);
 
 	}catch(err){
 

@@ -66,7 +66,7 @@ User.find({},function(err,users) {
 
 exports.getCreations = function(req,res){
 
-creation.find({},function(err,users) {
+Item.find({},function(err,users) {
 	res.send(users);
 	});
 };

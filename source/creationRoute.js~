@@ -335,7 +335,7 @@ exports.loadMenu= function(cb)
 {
 	Menu.find({id:1}, function(err,item) {
 		console.log(item[0]);
-		cb(item.menu[0]);
+		cb(item[0].menu);
 	});
 
 }
