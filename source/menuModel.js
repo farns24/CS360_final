@@ -1,0 +1,14 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var findOrCreate = require('mongoose-findorcreate')
+var ObjectId = Schema.ObjectId;
+
+
+var menuSchema = new mongoose.Schema({id:Number, menu: String});
+
+menuSchema.plugin(findOrCreate);
+
+var Menus =  mongoose.model('menus', menuSchema);
+
+
+module.exports = Menus;

@@ -6,7 +6,7 @@ var fs = require("fs");
 mongoose.connect('mongodb://localhost/scdbtest');
 console.log("Test Connection Worked");
 var creationSchema = new mongoose.Schema({name: 'string',userId:'number',creationId:'number',timesOrdered:'number'});
-
+var Menu = require('./menuModel');
 var User = require('./user');
 var Item = require('./item');
 
@@ -325,3 +325,17 @@ exports.deleteItem =  function (req,res) {
   });
 }
 
+exports.storeMenu= function(currentMenu)
+{
+	Menu.create({id:1,menu:currentMenu}, function(err,item) {});
+
+}
+
+exports.loadMenu= function(cb)
+{
+	Menu.find({id:1}, function(err,item) {
+		console.log(item[0]);
+		cb(item[0].menu);
+	});
+
+}

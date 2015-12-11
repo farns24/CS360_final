@@ -31,7 +31,7 @@ module.exports = React.createClass({
 	
 	});	
 	return (
-		<div>{params.itemId}</div>
+		<div>{options}</div>
  			);
 	}
 });

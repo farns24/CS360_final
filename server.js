@@ -28,13 +28,16 @@ app.use('/public', express.static("public"));
 app.get('/users', creationRoute.getUsers);
 
 var cb =  function(updatedMenu){
+		console.log(updatedMenu);
 		currentMenu = updatedMenu;
+		creationRoute.storeMenu(currentMenu);
                 currentCategories = menuHelper.getCategories(updatedMenu);
 		itemToOption = menuHelper.getOptionMap(updatedMenu);
 	};
 
 try{
-	menu.getMenu(cb);
+	creationRoute.loadMenu(cb);
+	//menu.getMenu(cb);
 }catch(err){
 
 }

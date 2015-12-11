@@ -26,9 +26,11 @@ module.exports = React.createClass({
 	var options = this.state.options.map(function(dataProps){
 	var props = {};
 	props['option'] = dataProps;
-	props['title'] = params.title;	
-	return <MenuOption {...props}/>
-	
+	props['title'] = params.title;
+		if (dataProps)
+		{	
+		return <MenuOption {...props}/>
+		}
 	});	
 	return (
 		<div>{options}</div>
