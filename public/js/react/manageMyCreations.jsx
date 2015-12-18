@@ -4,7 +4,7 @@ var History = ReactRouter.History;
 
 var auth = require("./auth");
 var api = require('./api');
-var BrowseItem = require('./browseItem');
+var BrowseItem = require('./browseEditItem');
 
 
 module.exports = React.createClass({

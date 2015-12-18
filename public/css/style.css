@@ -156,6 +156,12 @@ height: 150px;
     height: 200px;
 }
 
+.sideBySide{
+	float: left;
+	position: relative;
+	text-transform: uppercase;
+}
+
 label { 
     padding:0.4em 2em 0.4em 0; 
 }

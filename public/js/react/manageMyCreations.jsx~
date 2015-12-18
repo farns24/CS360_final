@@ -30,7 +30,7 @@ module.exports = React.createClass({
 					return <BrowseItem {...dataProps}/>
 
 				});
-	return(<div>My creations</div>);
+	return(<div><h2>My creations</h2>{items}</div>);
 	}
 
 

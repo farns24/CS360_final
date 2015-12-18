@@ -12,6 +12,9 @@ var OptionVal = React.createClass({
 module.exports = React.createClass({
 	 
 	
+	selectClick:function(){
+
+	},
 	render: function(){
 		
 		var optionValues = this.props.option? this.props.option.optionValues:[];
@@ -22,8 +25,8 @@ module.exports = React.createClass({
 		return(
 		<div>
 			{this.props.option.optionValues &&this.props.option.optionValues.length>0?
- (<form><div className="btn-group">
-	<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ (<form><div className="btn-group sideBySide">
+	<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
     {this.props.option.optionDisplayName} <span className="caret"></span>
   </button>
 	<ul className="dropdown-menu">
@@ -32,7 +35,7 @@ module.exports = React.createClass({
 </div></form>)
 
 
- : <button className="btn btn-default">{this.props.option.optionDisplayName}</button>}
+ : <button className="btn btn-default sideBySide" onClick={this.selectClick}>{this.props.option.optionDisplayName}</button>}
 		</div>
 		);
 	}

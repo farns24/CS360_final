@@ -36,8 +36,8 @@ var cb =  function(updatedMenu){
 	};
 
 try{
-	creationRoute.loadMenu(cb);
-	//menu.getMenu(cb);
+	//creationRoute.loadMenu(cb);
+	menu.getMenu(cb);
 }catch(err){
 
 }
@@ -45,8 +45,8 @@ setInterval(function(){
 	  try{
 	  //console.log("Update Menu");
 	  currentMenu = "";
-	creationRoute.loadMenu(cb);
-	  //menu.getMenu(cb);
+	//creationRoute.loadMenu(cb);
+	  menu.getMenu(cb);
 
 	}catch(err){
 
