@@ -24,7 +24,16 @@ $(document).ready(function (){
 	},function(){
         $(this).animate({'zoom':1},400);
 	});
+ //Click for selection
+    $(".sideBySide").click(function(){
+        console.log("jQuery click");
+	$(this).toggleClass("btn-info");
+    });
       
-    $( ".accordion" ).accordion(); 
+   // $( ".accordion" ).accordion();
+
+   
+
+ 
 
 });

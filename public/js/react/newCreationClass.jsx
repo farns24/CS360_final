@@ -68,19 +68,22 @@ module.exports = React.createClass({
   },
 
   createItem: function(event){
+	event.preventDefault();
         console.log('createItem');
-	var self = this;
-	itemApi.addItem(this.refs.title.value, selectedItemId,function(success,res){
+	var title = this.refs.title.value;
+	itemApi.addItem(title, selectedItemId,function(success,res){
 
 	console.log(res);
 	editItem.setEditedItem(res);
 	if (success)
 	{	
-		self.transitionTo('editItem', {itemId: selectedItemId});
+		//this.transitionTo('editItem', {itemId: selectedItemId});
+		//History.pushState(null, '/test');
+		window.location.href = "#editItem?itemId="+selectedItemId+"&id="+res.item.id +"&title="+title;
 	}
 });
-	event.preventdefault();
-	return true;
+	
+	return false;
 },
 
   componentDidMount: function() {
@@ -107,7 +110,7 @@ module.exports = React.createClass({
 	return <MenuCategory {...data}/>
 	});
     return (
-        <form action="#editItem" onSubmit={this.createItem}>
+        <form onSubmit={this.createItem}>
 	    <h2>Enter Creation Name</h2>
 	    	<input type="text" name="title" ref="title"></input>
             <h2>Choose Base Drink Category</h2>

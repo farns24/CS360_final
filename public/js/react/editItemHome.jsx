@@ -23,15 +23,18 @@ module.exports = React.createClass({
     }.bind(this));
   },
 	render: function(){
-	var options = this.state.options.map(function(dataProps){
-	var props = {};
-	props['option'] = dataProps;
-	props['title'] = params.title;
-		if (dataProps)
-		{	
-		return <MenuOption {...props}/>
-		}
-	});	
+	var options ="";
+	if (this.state.options!=null){
+		options= this.state.options.map(function(dataProps){
+		var props = {};
+		props['option'] = dataProps;
+		props['title'] = params.title;
+			if (dataProps)
+			{	
+			return <MenuOption {...props}/>
+			}
+		});	
+	}
 	return (
 		<div>{options}</div>
  			);

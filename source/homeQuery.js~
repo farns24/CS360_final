@@ -24,17 +24,16 @@ $(document).ready(function (){
 	},function(){
         $(this).animate({'zoom':1},400);
 	});
+ //Click for selection
+    $(".sideBySide").click(function(){
+        console.log("jQuery click");
+	$(this).toggleClass("btn-info");
+    });
       
-    $( ".accordion" ).accordion();
+   // $( ".accordion" ).accordion();
 
-    $(".itemRadioBtn:not('.noscript') input[type=radio]").addClass("visuallyhidden");
-	$(".itemRadioBtn:not('.noscript') input[type=radio]").change(function() {
-    if( $(this).attr("name") ) {
-        $(this).parent().addClass("success").siblings().removeClass("success")
-    } else {
-        $(this).parent().toggleClass("success");
-    }
-});
+   
+
  
 
 });

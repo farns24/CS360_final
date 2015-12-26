@@ -68,19 +68,22 @@ module.exports = React.createClass({
   },
 
   createItem: function(event){
+	event.preventDefault();
         console.log('createItem');
-	var self = this;
+	
 	itemApi.addItem(this.refs.title.value, selectedItemId,function(success,res){
 
 	console.log(res);
 	editItem.setEditedItem(res);
 	if (success)
 	{	
-		self.transitionTo('editItem', {itemId: selectedItemId});
+		//this.transitionTo('editItem', {itemId: selectedItemId});
+		//History.pushState(null, '/test');
+		window.location.href = "#editItem?itemId="+selectedItemId+"&id="+res.item.id +"&title="+this.refs.title.value;
 	}
 });
-	event.preventdefault();
-	return true;
+	
+	return false;
 },
 
   componentDidMount: function() {

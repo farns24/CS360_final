@@ -14,7 +14,7 @@ module.exports = React.createClass({
 		
 		<input type="hidden" name="itemId" value={this.props.itemId}/>
 		<input type="hidden" name="title" value ={this.props.title}/>
-		<input type="submit" name="edit" value= "true"/>
+		<input type="submit" value= "edit"/>
 	</form>
     </div>
     );
